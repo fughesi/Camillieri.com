@@ -1,0 +1,17 @@
+{
+  "name": "camillieri.com",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --watch --env-file=.env server.js"
+  },
+  "keywords": [
+    "camillieri"
+  ],
+  "author": "Steven Camillieri",
+  "license": "ISC",
+  "description": "Personal website",
+  "dependencies": {
+    "mysql2": "^3.11.3"
+  }
+}
