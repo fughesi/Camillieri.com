@@ -1,8 +1,8 @@
 const http = require("node:http");
 const path = require("node:path");
 const { readFile } = require("node:fs/promises");
-
 const PORT = process.env.PORT || 3333;
+const { aboutController } = require("./controllers/aboutController");
 
 http
   .createServer(async (req, res) => {
@@ -21,14 +21,17 @@ http
 
       if (req.url === "/") file = "./index.html";
 
+      if (req.url === "/tits") aboutController().about();
+
       const contents = await readFile(file, { encoding: "utf8" });
 
+      res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:52237");
       res.setHeader("Content-Type", contentType);
       res.end(contents);
     } catch (error) {
       res.statusCode = 500;
-      res.setHeader("Content-Type", "application/json");
-      res.end({ message: error });
+      res.setHeader("Content-Type", "text/plain");
+      res.end(error.message);
     }
   })
   .listen(PORT, () =>
