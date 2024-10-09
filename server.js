@@ -25,7 +25,11 @@ http
 
       const contents = await readFile(file, { encoding: "utf8" });
 
-      res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:52237");
+      res.setHeader("Access-Control-Allow-Origin", [
+        "http://127.0.0.1:52237",
+        "https://fughesi.github.io/Camillieri.com/",
+        "*",
+      ]);
       res.setHeader("Content-Type", contentType);
       res.end(contents);
     } catch (error) {
