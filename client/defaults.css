@@ -1,0 +1,225 @@
+@import url(./fonts/fonts.css);
+
+:root {
+  /* COLORS */
+  --color1: #eeeeee;
+  --color2: #686d76;
+  --color3: #373a40;
+  --color4: #181c24;
+  --color5: #dc5f00;
+
+  --white: #eeeeee;
+  --black: #191717;
+
+  --grey1: #cccccc;
+  --grey2: #999999;
+  --grey3: #666666;
+  --grey4: #333333;
+
+  --accent1: cornflowerblue;
+
+  /* SIZES */
+  --size1: clamp(0.31rem, 0.31vw + 0.25rem, 0.5rem);
+  --size2: clamp(0.39rem, 0.46vw + 0.3rem, 0.67rem);
+  --size3: clamp(0.49rem, 0.67vw + 0.35rem, 0.89rem);
+  --size4: clamp(0.61rem, 0.96vw + 0.42rem, 1.18rem);
+  --size5: clamp(0.76rem, 1.36vw + 0.49rem, 1.58rem);
+  --size6: clamp(0.95rem, 1.92vw + 0.57rem, 2.1rem);
+  --size7: clamp(1.19rem, 2.69vw + 0.65rem, 2.81rem);
+  --size8: clamp(1.49rem, 3.75vw + 0.74rem, 3.74rem);
+  --size9: clamp(1.86rem, 5.2vw + 0.82rem, 4.98rem);
+
+  --headline1: clamp(1.19rem, 9.2vw + -1.11rem, 6.25rem);
+  --headline2: clamp(1.48rem, 12.45vw + -1.63rem, 8.33rem);
+  --headline3: clamp(1.86rem, 16.82vw + -2.35rem, 11.11rem);
+
+  /* FONTS */
+  --font1: "advent-pro";
+  --font2: "Tusj";
+  --font3: "lizards";
+  --font4: "bold-font";
+  --font5: "bebas";
+  --font6: "montserrat";
+
+  /* SHADOWS */
+  --shadow1: inset 1px 1px 0 #aaa1, 0 0 5px #0009, 0px 0px 10px #3339;
+  --shadow2: 1px 1px 1px #666, 2px 2px 5px #999;
+  --shadow3: 1px 3px 3px #333, -1px -1px 1px #ccc;
+  --shadow4: 5px 2px 2px #000, 22px -2px 10px #000;
+  --shadow5: 1px 1px 1px #000, 18px 15px 15px #0004;
+  --shadow6: 0px 0px 1.5px #000;
+  --shadow7: 1px 1px 3px #000, 0 0 1px #000;
+  --shadow8: 0px 0px 3px #3335, 0px 11px 15px var(--color1);
+
+  /* RADIUS */
+  --radius1: 2rem;
+  --radius2: 5rem;
+  --radius3: 50%;
+
+  /* OUTLINE */
+  --outline1: 1px 0 0 #eee, -1px 0 0 #eee, 0 1px 0 #eee, 0 -1px 0 #eee;
+  --outline2: 1px 0 0 #252422, -1px 0 0 #252422, 0 1px 0 #252422,
+    0 -1px 0 #252422;
+  --outline3: 1px solid var(--accent1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  opacity: 0;
+  margin: 0;
+
+  color: var(--black);
+  background-color: var(--white);
+  font-family: var(--font2), sans-serif;
+
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  transition: all 350ms;
+  animation: 3s forwards fade;
+
+  & ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+main {
+  width: 100vw;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.fadeIn {
+  scale: 1 !important;
+  opacity: 1 !important;
+  transition: opacity 350ms ease-in;
+}
+
+.none {
+  display: none !important;
+}
+
+/***** OBSERVER *****/
+.move {
+  transform: translate(0, 0) !important;
+}
+
+/***** FORMS *****/
+input {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: var(--size5);
+  border-radius: 0.5rem;
+  border: 3px solid var(--grey1);
+  background-color: var(--grey3);
+
+  + p {
+    padding-left: 1rem;
+    font-size: var(--size2);
+    font-family: var(--font6);
+    color: red;
+  }
+}
+
+.valid-input {
+  border-color: var(--accent1);
+
+  + p {
+    visibility: hidden !important;
+  }
+}
+
+/***** MODAL *****/
+.popover {
+  height: 80svh;
+  width: 80vw;
+  background-color: var(--white);
+  box-shadow: var(--shadow5);
+}
+
+.modal-open {
+  height: 100%;
+  overflow: hidden;
+  filter: grayscale(100%);
+}
+
+::backdrop {
+  background-color: #0009;
+}
+
+/***** TOOLTIP *****/
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline 1px dotted var(--grey4);
+  text-underline-offset: 0.2em;
+  padding: 0.1em 0.5rem;
+}
+
+.tooltip::before,
+.tooltip::after {
+  position: absolute;
+  opacity: 0;
+  background-color: var(--black);
+}
+
+.tooltip::before {
+  z-index: 10;
+  bottom: 100%;
+  padding: 1rem 1rem 2rem;
+  content: attr(data-tooltip);
+  display: none;
+  user-select: none;
+  color: var(--white);
+  font-family: var(--font1);
+  font-size: var(--size3);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 80%,
+    60% 80%,
+    50% 100%,
+    40% 80%,
+    0% 80%,
+    0% 0%
+  );
+}
+
+.tooltip:hover::before,
+.tooltip:focus::before {
+  display: inline;
+  animation: 500ms forwards fade;
+}
+
+@keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}

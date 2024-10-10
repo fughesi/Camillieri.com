@@ -21,7 +21,7 @@ http
 
       if (req.url === "/") file = "./index.html";
 
-      if (req.url === "/tits") aboutController().about();
+      if (req.url === "/test") aboutController().about();
 
       const contents = await readFile(file, { encoding: "utf8" });
 

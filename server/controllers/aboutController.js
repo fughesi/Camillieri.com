@@ -7,13 +7,7 @@ function aboutController(req, res) {
 
   return {
     about: async () => {
-      const thing = await db(
-        "SELECT * FROM interests WHERE id = ?",
-
-        1
-      ).query();
-      res.setHeader("Access-Control-Allow-Origin", "*");
-      res.setHeader("Content-Type", "application/json");
+      const thing = await db("SELECT * FROM interests WHERE id = ?", 1).query();
       res.end(JSON.stringify(thing));
       return;
     },
