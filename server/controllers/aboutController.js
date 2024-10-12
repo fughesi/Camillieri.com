@@ -7,7 +7,7 @@ function aboutController(req, res) {
 
   return {
     about: async () => {
-      const thing = await db("SELECT * FROM interests WHERE id = ?", 1).query();
+      const thing = await db("SELECT * FROM interests").query();
       res.end(JSON.stringify(thing));
       return;
     },

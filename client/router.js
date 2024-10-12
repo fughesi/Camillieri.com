@@ -7,53 +7,34 @@ const route = (event) => {
 
 const routes = {
   "/": {
-    path: "pages/home/home.html",
-    js: "pages/home/home.js",
+    path: "home/home.html",
+    js: "home/home.js",
     title: "HOME",
   },
   "/about": {
-    path: "pages/about/about.html",
-    js: "pages/about/about.js",
+    path: "about/about.html",
+    js: "about/about.js",
     title: "ABOUT",
   },
   "/contact": {
-    path: "pages/contact/contact.html",
-    js: "pages/contact/contact.js",
+    path: "contact/contact.html",
+    js: "contact/contact.js",
     title: "CONTACT",
-  },
-  "/care": {
-    path: "pages/care/care.html",
-    js: "pages/care/care.js",
-    title: "CARE",
-  },
-  "/terms": {
-    path: "pages/terms/terms.html",
-    js: "pages/terms/terms.js",
-    title: "TERMS",
-  },
-  "/availability": {
-    path: "pages/availability/availability.html",
-    js: "pages/availability/availability.js",
-    title: "AVAILABILITY",
-  },
-  "/listing": {
-    path: "pages/listing/listing.html",
-    js: "pages/listing/listing.js",
-    title: "LISTING",
   },
 };
 
 const handleLocation = async () => {
   const path = window.location.pathname;
-  const html = routes[path]?.path || routes["/"].path;
-  const js = routes[path].js || routes["/"].js;
+  const html = `pages/${routes[path].path}` || `pages/${routes["/"].path}`;
+  const js = `pages/${routes[path].js}` || `pages/${routes["/"].js}`;
 
   fetch(html)
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("root").innerHTML = html;
       document.title = `Camillieri | ${routes[path].title}`;
-
+    })
+    .then(() => {
       const performance = document.getElementById("performance");
       const script1 = document.createElement("script");
       script1.src = "./utils/performance.js";
@@ -71,7 +52,8 @@ const handleLocation = async () => {
       script3.src = js;
       script3.id = "page";
       document.head.replaceChild(script3, page);
-    });
+    })
+    .catch((error) => console.table({ error }));
 };
 
 window.onpopstate = handleLocation;

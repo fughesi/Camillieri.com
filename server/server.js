@@ -1,6 +1,7 @@
 const http = require("node:http");
 const path = require("node:path");
 const { middleware } = require("./utils/middleware");
+const { aboutController } = require("./controllers/aboutController");
 
 const PORT = process.env.PORT || 3333;
 
@@ -27,7 +28,11 @@ http
         // reroutes to index on page refresh so router.js can navigate
         file = path.join(__dirname, "..", "client", "index.html");
 
-      middleware().serveFile(file, contentType, res); // serve all static files
+      if (req.headers["content-type"] === "application/json") {
+        aboutController(req, res).about();
+      } else {
+        middleware().serveFile(file, contentType, res); // serve all static files
+      }
     } catch (error) {
       res.statusCode = 500;
       res.setHeader("Content-Type", "text/plain");
