@@ -1,9 +1,10 @@
 const { db } = require("../database/mysql");
 
 function aboutController(req, res) {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.setHeader("Access-Control-Allow-Origin", "*"); // allow all connections
+  res.writeHead(200, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*", // allow all connections
+  });
 
   return {
     about: async () => {

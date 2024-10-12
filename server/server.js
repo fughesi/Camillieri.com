@@ -25,13 +25,15 @@ http
       const pages = ["/", "/about", "/home"];
 
       if (pages.indexOf(endpoint) > -1)
-        // reroutes to index on page refresh so router.js can navigate
+        // redirects to index on refresh so router.js can navigate
         file = path.join(__dirname, "..", "client", "index.html");
 
       if (req.headers["content-type"] === "application/json") {
+        // API endpoints
         aboutController(req, res).about();
       } else {
-        middleware().serveFile(file, contentType, res); // serve all static files
+        // static files
+        middleware().serveFile(file, contentType, res);
       }
     } catch (error) {
       res.statusCode = 500;
