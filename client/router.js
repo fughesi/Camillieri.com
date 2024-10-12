@@ -1,10 +1,3 @@
-const route = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  window.history.pushState({}, "", event.target.href);
-  handleLocation();
-};
-
 const routes = {
   "/": {
     path: "home/home.html",
@@ -23,7 +16,14 @@ const routes = {
   },
 };
 
-const handleLocation = async () => {
+function route(event) {
+  event = event || window.event;
+  event.preventDefault();
+  window.history.pushState({}, "", event.target.href);
+  handleLocation();
+}
+
+async function handleLocation() {
   const path = window.location.pathname;
   const html = `pages/${routes[path].path}` || `pages/${routes["/"].path}`;
   const js = `pages/${routes[path].js}` || `pages/${routes["/"].js}`;
@@ -54,7 +54,7 @@ const handleLocation = async () => {
       document.head.replaceChild(script3, page);
     })
     .catch((error) => console.table({ error }));
-};
+}
 
 window.onpopstate = handleLocation;
 window.route = route;
