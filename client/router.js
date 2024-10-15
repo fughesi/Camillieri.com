@@ -14,6 +14,16 @@ const routes = {
     js: "contact/contact.js",
     title: "CONTACT",
   },
+  "/experience": {
+    path: "experience/experience.html",
+    js: "experience/experience.js",
+    title: "EXPERIENCE",
+  },
+  "/education": {
+    path: "education/education.html",
+    js: "education/education.js",
+    title: "EDUCATION",
+  },
 };
 
 function route(event) {

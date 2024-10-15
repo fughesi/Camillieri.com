@@ -1,1 +1,6 @@
 @import url("./defaults.css");
+
+#nav {
+  position: absolute;
+  z-index: 10;
+}

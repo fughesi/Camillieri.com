@@ -1,0 +1,60 @@
+.home {
+  position: relative;
+
+  display: grid;
+  width: 100vw;
+  min-height: 100svh;
+  padding-top: 2rem;
+
+  /* background-image: url("../../media/monkeyHeadIG.png"); */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .title {
+    font-size: var(--headline2);
+    color: var(--color3);
+    user-select: none;
+
+    rotate: 15deg;
+    transform-origin: 30% 60%;
+
+    animation: toggleTitle 1000ms ease-out;
+
+    &::after {
+      position: absolute;
+      content: ".me";
+      top: 0;
+
+      rotate: 75deg;
+      transform-origin: 10% 80%;
+      color: var(--accent1);
+      font-size: var(--size7);
+
+      animation: toggleAttr 1500ms cubic-bezier(0.77, 0.25, 0.76, 1.59);
+    }
+  }
+
+  .monkeyhead {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+@keyframes toggleTitle {
+  50% {
+    rotate: 10deg;
+  }
+  100% {
+    rotate: 15deg;
+  }
+}
+
+@keyframes toggleAttr {
+  50% {
+    rotate: 10deg;
+  }
+  100% {
+    rotate: 75deg;
+  }
+}

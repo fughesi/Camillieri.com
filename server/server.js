@@ -9,6 +9,7 @@ http
   .createServer(async (req, res) => {
     try {
       const endpoint = req.url;
+      const extension = path.extname(endpoint).toLowerCase();
 
       const mimetypes = {
         ".css": "text/css",
@@ -16,13 +17,21 @@ http
         ".html": "text/html",
         ".json": "application/json",
         ".ico": "image/x-icon",
+        ".png": "image/png",
+        ".jpeg": "image/jpeg",
+        ".jpg": "image/jpeg",
+        ".mp4": "video/mp4",
+        ".svg": "image/svg+xml",
+        ".webp": "image/webp",
+        ".woff": "font/woff",
+        ".rtf": "application/rtf",
       };
 
-      let contentType = mimetypes[path.extname(endpoint)] || "text/html";
+      let contentType = mimetypes[extension] || "text/html";
 
       let file = path.join(__dirname, "..", "client", endpoint);
 
-      const pages = ["/", "/about", "/home"];
+      const pages = ["/", "/about", "/home", "/education", "/experience"];
 
       if (pages.indexOf(endpoint) > -1)
         // redirects to index on refresh so router.js can navigate

@@ -8,7 +8,8 @@ function aboutController(req, res) {
 
   return {
     about: async () => {
-      const thing = await db("SELECT * FROM interests").query();
+      const thing = await db("SELECT * FROM test2").query();
+      // const thing = await db("SELECT * FROM interests").query();
       res.end(JSON.stringify(thing));
       return;
     },

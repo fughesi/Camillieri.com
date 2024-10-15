@@ -1,0 +1,10 @@
+.experience {
+  position: relative;
+
+  display: grid;
+  width: 100vw;
+  min-height: 100svh;
+  padding-top: 2rem;
+
+  background-color: var(--black);
+}
