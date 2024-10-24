@@ -1,3 +1,4 @@
+// const fs = require("node:fs");
 const fs = require("node:fs/promises");
 
 function middleware() {
@@ -29,14 +30,14 @@ function middleware() {
 
     serveFile: async (file, contentType, res) => {
       try {
-        const content = await fs.readFile(file, { encoding: "utf8" });
+        const content = await fs.readFile(file);
 
         res.writeHead(200, {
           "Content-Type": contentType, // set MIME type
           "Access-Control-Allow-Origin": ["http://127.0.0.1:52237", "*"], // CORS
         });
 
-        res.end(content);
+        res.end(content, "utf-8");
       } catch (error) {
         error?.code !== "ENOENT"
           ? (res.writeHead(500), res.end(`Server Error: ${error}`))
