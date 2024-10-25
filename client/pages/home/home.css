@@ -6,19 +6,20 @@
   min-height: 100svh;
   padding-top: 2rem;
 
-  /* background-image: url("../../media/monkeyHeadIG.png"); */
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--color4);
 
   .title {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+
+    margin: 0;
+    user-select: none;
     font-size: var(--headline2);
     color: var(--color3);
-    user-select: none;
 
     rotate: 15deg;
     transform-origin: 30% 60%;
-
     animation: toggleTitle 1000ms ease-out;
 
     &::after {
@@ -35,9 +36,16 @@
     }
   }
 
-  .monkeyhead {
-    position: absolute;
-    width: 100%;
+  .social-icons a {
+    padding: 0.5rem;
+    background-color: aliceblue;
+    border-radius: var(--radius3);
+  }
+
+  .tagline p {
+    margin: 0;
+    color: var(--color3);
+    font-size: var(--size6);
   }
 }
 
@@ -56,5 +64,21 @@
   }
   100% {
     rotate: 75deg;
+  }
+}
+
+.st {
+  padding: 1rem;
+  background-color: aliceblue;
+  display: grid;
+  grid-template-rows: 0fr;
+
+  transition: all 1s;
+
+  .steven {
+    overflow: hidden;
+  }
+  &:hover {
+    grid-template-rows: 1fr;
   }
 }

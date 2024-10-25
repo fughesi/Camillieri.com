@@ -1,6 +1,46 @@
 @import url("./defaults.css");
 
 #nav {
-  position: absolute;
+  position: fixed;
+  inset: auto;
+  padding: 2rem;
   z-index: 10;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 2rem;
+    height: 0.2rem;
+    display: inline-block;
+    background-color: blanchedalmond;
+
+    transform: translateY(-0.33rem);
+  }
+
+  &::after {
+    transform: translateY(0.33rem);
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    height: 0rem;
+    overflow: hidden;
+
+    place-items: center;
+    justify-content: space-evenly;
+
+    transition: height 500ms var(--timing1) 100ms;
+
+    #nav:hover > &,
+    #nav:focus > & {
+      height: 6rem;
+    }
+  }
 }

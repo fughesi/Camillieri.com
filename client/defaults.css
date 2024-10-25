@@ -65,6 +65,9 @@
   --outline2: 1px 0 0 #252422, -1px 0 0 #252422, 0 1px 0 #252422,
     0 -1px 0 #252422;
   --outline3: 1px solid var(--accent1);
+
+  /* TIMING */
+  --timing1: cubic-bezier(0.4, 0, 0, 1.22);
 }
 
 *,
