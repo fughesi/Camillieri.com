@@ -1,3 +1,7 @@
+(function () {
+  window.scroll(0, 0);
+})();
+
 // fetch("/media/a.png")
 //   .then((res) => res.blob())
 //   // .then((data) => console.log(data))

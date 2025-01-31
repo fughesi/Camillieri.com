@@ -4,7 +4,17 @@
   display: grid;
   width: 100vw;
   min-height: 100svh;
-  padding-top: 2rem;
+  padding-top: 5rem;
 
   background-color: var(--grey4);
+
+  .card {
+    height: 50px;
+    aspect-ratio: 2/1;
+    border: 2px solid white;
+
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+  }
 }

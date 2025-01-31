@@ -1,24 +1,26 @@
 .home {
-  position: relative;
-
-  display: grid;
-  width: 100vw;
-  min-height: 100svh;
   padding-top: 2rem;
 
-  /* background-image: url("../../media/monkeyHeadIG.png"); */
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 100vw;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+
+  background-color: ivory;
 
   .title {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+
+    margin: 0;
+    user-select: none;
     font-size: var(--headline2);
     color: var(--color3);
-    user-select: none;
 
     rotate: 15deg;
     transform-origin: 30% 60%;
-
     animation: toggleTitle 1000ms ease-out;
 
     &::after {
@@ -35,9 +37,64 @@
     }
   }
 
-  .monkeyhead {
-    position: absolute;
-    width: 100%;
+  .home-hero-frame {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-areas:
+      ". . . d"
+      "e a a d"
+      "e a a d"
+      "b b c d";
+
+    width: 90%;
+    height: 90%;
+    padding: 0.5rem;
+    border-radius: var(--radius1);
+    background-color: var(--color4);
+    color: var(--accent1);
+
+    & > div {
+      border-radius: inherit;
+    }
+
+    .home-hero-top {
+      grid-area: a;
+      background-color: aliceblue;
+      /* clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); */
+
+      & > svg {
+        fill: orange;
+      }
+    }
+
+    .home-hero-left {
+      grid-area: b;
+      background-color: azure;
+    }
+
+    .home-hero-right {
+      grid-area: c;
+      background-color: burlywood;
+    }
+
+    .home-hero-carousel {
+      grid-area: d;
+      background-color: bisque;
+
+      position: relative;
+      width: 100%;
+      margin: auto;
+      overflow: hidden;
+
+      & img {
+        width: 100%;
+        display: none;
+      }
+
+      & img.displaySlide {
+        display: block;
+      }
+    }
   }
 }
 
