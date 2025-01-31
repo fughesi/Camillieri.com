@@ -25,6 +25,8 @@ http
         ".webp": "image/webp",
         ".woff": "font/woff",
         ".rtf": "application/rtf",
+        ".gif": "image/gif",
+        ".bin": "application/octet-stream",
       };
 
       let contentType = mimetypes[extension] || "text/html";

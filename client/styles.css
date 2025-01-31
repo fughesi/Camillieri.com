@@ -32,6 +32,7 @@
     flex-direction: column;
     height: 0rem;
     overflow: hidden;
+    /* text-shadow: var(--shadow5); */
 
     place-items: center;
     justify-content: space-evenly;

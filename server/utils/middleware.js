@@ -1,4 +1,3 @@
-// const fs = require("node:fs");
 const fs = require("node:fs/promises");
 
 function middleware() {

@@ -3,6 +3,7 @@
 @import url("./pages/about/about.css");
 @import url("./pages/education/education.css");
 @import url("./pages/experience/experience.css");
+@import url("./components/footer/footer.css");
 
 :root {
   /* COLORS */
@@ -92,7 +93,6 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 
-  transition: all 350ms;
   animation: 3s forwards fade;
 
   & ::-webkit-scrollbar {
@@ -101,7 +101,11 @@ body {
 }
 
 main {
+  position: relative;
   width: 100vw;
+  z-index: 2;
+  margin-bottom: 15rem;
+  box-shadow: var(--shadow1);
 }
 
 button {
@@ -133,6 +137,7 @@ li {
 /***** OBSERVER *****/
 .move {
   transform: translate(0, 0) !important;
+  opacity: 1 !important;
 }
 
 /***** FORMS *****/
